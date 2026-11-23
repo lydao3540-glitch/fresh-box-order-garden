@@ -10,33 +10,115 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminRouteImport } from './routes/admin'
+import { Route as ChiTietRouteImport } from './routes/chi-tiet'
+import { Route as DatHangRouteImport } from './routes/dat-hang'
+import { Route as DatHangThanhCongRouteImport } from './routes/dat-hang-thanh-cong'
+import { Route as SanPhamRouteImport } from './routes/san-pham'
+import { Route as TraCuuRouteImport } from './routes/tra-cuu'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminRoute = AdminRouteImport.update({
+  id: '/admin',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ChiTietRoute = ChiTietRouteImport.update({
+  id: '/chi-tiet',
+  path: '/chi-tiet',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatHangRoute = DatHangRouteImport.update({
+  id: '/dat-hang',
+  path: '/dat-hang',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatHangThanhCongRoute = DatHangThanhCongRouteImport.update({
+  id: '/dat-hang-thanh-cong',
+  path: '/dat-hang-thanh-cong',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SanPhamRoute = SanPhamRouteImport.update({
+  id: '/san-pham',
+  path: '/san-pham',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TraCuuRoute = TraCuuRouteImport.update({
+  id: '/tra-cuu',
+  path: '/tra-cuu',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/chi-tiet': typeof ChiTietRoute
+  '/dat-hang': typeof DatHangRoute
+  '/dat-hang-thanh-cong': typeof DatHangThanhCongRoute
+  '/san-pham': typeof SanPhamRoute
+  '/tra-cuu': typeof TraCuuRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/chi-tiet': typeof ChiTietRoute
+  '/dat-hang': typeof DatHangRoute
+  '/dat-hang-thanh-cong': typeof DatHangThanhCongRoute
+  '/san-pham': typeof SanPhamRoute
+  '/tra-cuu': typeof TraCuuRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin': typeof AdminRoute
+  '/chi-tiet': typeof ChiTietRoute
+  '/dat-hang': typeof DatHangRoute
+  '/dat-hang-thanh-cong': typeof DatHangThanhCongRoute
+  '/san-pham': typeof SanPhamRoute
+  '/tra-cuu': typeof TraCuuRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/chi-tiet'
+    | '/dat-hang'
+    | '/dat-hang-thanh-cong'
+    | '/san-pham'
+    | '/tra-cuu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin'
+    | '/chi-tiet'
+    | '/dat-hang'
+    | '/dat-hang-thanh-cong'
+    | '/san-pham'
+    | '/tra-cuu'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin'
+    | '/chi-tiet'
+    | '/dat-hang'
+    | '/dat-hang-thanh-cong'
+    | '/san-pham'
+    | '/tra-cuu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminRoute: typeof AdminRoute
+  ChiTietRoute: typeof ChiTietRoute
+  DatHangRoute: typeof DatHangRoute
+  DatHangThanhCongRoute: typeof DatHangThanhCongRoute
+  SanPhamRoute: typeof SanPhamRoute
+  TraCuuRoute: typeof TraCuuRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +130,59 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin': {
+      id: '/admin'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/chi-tiet': {
+      id: '/chi-tiet'
+      path: '/chi-tiet'
+      fullPath: '/chi-tiet'
+      preLoaderRoute: typeof ChiTietRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dat-hang': {
+      id: '/dat-hang'
+      path: '/dat-hang'
+      fullPath: '/dat-hang'
+      preLoaderRoute: typeof DatHangRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dat-hang-thanh-cong': {
+      id: '/dat-hang-thanh-cong'
+      path: '/dat-hang-thanh-cong'
+      fullPath: '/dat-hang-thanh-cong'
+      preLoaderRoute: typeof DatHangThanhCongRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/san-pham': {
+      id: '/san-pham'
+      path: '/san-pham'
+      fullPath: '/san-pham'
+      preLoaderRoute: typeof SanPhamRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tra-cuu': {
+      id: '/tra-cuu'
+      path: '/tra-cuu'
+      fullPath: '/tra-cuu'
+      preLoaderRoute: typeof TraCuuRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminRoute: AdminRoute,
+  ChiTietRoute: ChiTietRoute,
+  DatHangRoute: DatHangRoute,
+  DatHangThanhCongRoute: DatHangThanhCongRoute,
+  SanPhamRoute: SanPhamRoute,
+  TraCuuRoute: TraCuuRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
